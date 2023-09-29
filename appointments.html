@@ -15,26 +15,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="./styles.css">
-    <style>
-        /* Your custom CSS styles go here */
-        .faq {
-            margin-bottom: 20px;
-        }
-        .question {
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .answer {
-            display: none;
-        }
-    </style>
-    <script>
-        // JavaScript to toggle answers on click
-        function toggleAnswer(index) {
-            const answer = document.querySelector(`#answer-${index}`);
-            answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
-        }
-    </script>
 </head>
 <body class="container-fluid">
     <section id="header">
@@ -47,39 +27,16 @@
                 <li class="nav-item"><a href="./appointments.html" class="nav-link">הזמנת שיעור</a></li>
             </ul>
           </header>
-    <section id="faqs">
+    </section>
+    <section id="appointments">
         <div class="container my-5">
             <div class="text-center bg-body-tertiary rounded-3">
                 
-                <h1 class="text-body-emphasis my-5">שאלות נפוצות</h1>
+                <h1 class="text-body-emphasis">הזמנת שיעור פרטי</h1>
 
-                <div class="faq border shadow-lg">
-                    <div class="question" onclick="toggleAnswer(1)">- מה הם המקצועות שאתם מלמדים?</div>
-                    <div class="answer" id="answer-1">
-                        אנחנו מלמדים מתמטיקה, פיזיקה, אנגלית, עברית ותכנות.
-                    </div>
-                </div>
-            
-                <div class="faq border shadow-lg">
-                    <div class="question" onclick="toggleAnswer(2)">- איך אני יכול להירשם לשיעורים פרטיים?</div>
-                    <div class="answer" id="answer-2">
-                        על מנת להירשם צריך למלא את הטופס אחרי שלוחצים על עמוד ההרשמה בעמוד הבית.
-                    </div>
-                </div>
-
-                <div class="faq border shadow-lg">
-                    <div class="question" onclick="toggleAnswer(3)">- איפה יהיו השיעורים הפרטיים?</div>
-                    <div class="answer" id="answer-3">
-                        אנחנו מאוד גמישים בנוגע לזה, השיעור יכול להיות בבית שלנו, בביתכם, או אפילו בזום!
-                    </div>
-                </div>
-
-                <div class="faq border shadow-lg">
-                    <div class="question" onclick="toggleAnswer(4)">- איך אפשר להזמין שיעור?</div>
-                    <div class="answer" id="answer-4">
-                        יצרנו מערכת הזמנת תורים בגוגל פורמס שמאפשרת לכם לקבוע שיעורים בקלות ובמהירות. על מנת להזמין תור, צריך לציין איזה חומר צריך חיזוק כדי שנכין מערך שיעור מעניין וחוויתי.
-                    </div>
-                </div>
+                <!-- Google Calendar Appointment Scheduling begin -->
+                <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0eI2Q6s0amr4_xWp0bMPMH8Puz9dJ6Zv7Xnt9KtNRR_y0CGGNApxI1fd-mIHgAZ1anOnzOOs1a?gv=true" style="border: 0" width="100%" height="1000" frameborder="0"></iframe>
+                <!-- end Google Calendar Appointment Scheduling -->
                 
             </div>
           </div>

@@ -23,6 +23,7 @@
               <li class="nav-item"><a href="./pricing.html" class="nav-link">מחירים</a></li>
               <li class="nav-item"><a href="./faqs.html" class="nav-link">שאלות</a></li>
               <li class="nav-item"><a href="./about_us.html" class="nav-link">עלינו</a></li>
+              <li class="nav-item"><a href="./appointments.html" class="nav-link">הזמנת שיעור</a></li>
             </ul>
           </header>
     </section>
@@ -34,9 +35,29 @@
             <div class="col-lg-6 mx-auto">
               <p class="lead mb-4">שיעורים פרטיים לכיתות ג' עד יא' תוך מתן ליווי אישי, דגש על הבנת החומר, ובניית יסודות חזקים להמשך הלמידה. אבל הכי חשוב - העברת החומר באופן חוויתי ומעניין :)</p>
               <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-4">
-                <a href="https://forms.gle/e1Tnd8EygKSWnmHm7"><button type="button" class="btn btn-primary btn-lg px-4 me-sm-3 rounded-pill">הרשמה</button></a>
-                <a href="https://wa.me/972505947947"><button type="button" class="btn btn-outline-secondary btn-lg px-4 rounded-pill">יצירת קשר</button></a>
+                <a href="https://forms.gle/e1Tnd8EygKSWnmHm7" class="btn btn-primary btn-lg px-4 me-sm-3 rounded-pill">הרשמה</a>
+                <a class="btn btn-outline-secondary btn-lg px-4 rounded-pill">
+
+                    <!-- Google Calendar Appointment Scheduling begin -->
+                    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+                    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                    <script>
+                    (function() {
+                      var target = document.currentScript;
+                      window.addEventListener('load', function() {
+                        calendar.schedulingButton.load({
+                          url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0eI2Q6s0amr4_xWp0bMPMH8Puz9dJ6Zv7Xnt9KtNRR_y0CGGNApxI1fd-mIHgAZ1anOnzOOs1a?gv=true',
+                          color: '#ffffff',
+                          label: 'הזמנת שיעור',
+                          target,
+                        });
+                      });
+                    })();
+                    </script>
+                    <!-- end Google Calendar Appointment Scheduling -->
+                </a>
               </div>
+              
             </div>
             <div class="overflow-hidden" style="max-height: 30vh;">
               <div class="container px-5">
@@ -152,6 +173,12 @@
                 <p class="lead">
                     ליאור היה מדריך בתכניות המצויינות סטארטק ומגשימים של המרכז לחינוך סייבר וגבריאל לימד מספר רב של תלמידים במסגרת שיעורים פרטיים ובהתנדבות.
                 </p>
+
+                <div class="container px-5">
+                  <img src="./images/lior_acc.jpeg" class="img-fluid rounded-3 mb-4" alt="Gavriel" width="200" loading="lazy">
+                  <img src="./images/lior_acc.jpeg" class="img-fluid rounded-3 mb-4" alt="Lior" width="200" loading="lazy">
+                </div>
+                
             </div>
           </div>
     </section>
