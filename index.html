@@ -25,8 +25,8 @@
   </button>
 
   <section id="header">
-      <header class="container d-flex justify-content-between align-items-center">
-          <a href="./index.html" class="nav-link" aria-current="page">
+      <header class="container d-flex justify-content-between align-items-center px-2">
+          <a href="./index.html" class="nav-link p-0" aria-current="page">
               <img src="./images/brainstorm.png" alt="Logo" width="32" height="32" class="flex-shrink-0">
           </a>
           <ul class="nav nav-pills mx-auto">
@@ -34,7 +34,7 @@
               <li class="nav-item mb-1"><a href="./faqs.html" class="nav-link text-body-secondary">שאלות</a></li>
               <li class="nav-item mb-1"><a href="./about_us.html" class="nav-link text-body-secondary">עלינו</a></li>
           </ul>
-          <div style="width: 32px"></div> <!-- Spacer to balance the layout -->
+          <div style="width: 32px"></div>
       </header>
   </section>
 
@@ -280,95 +280,87 @@
         z-index: 9998;
     }
 
-    .tutor-info {
-        position: fixed;
-        top: 65%;
-        left: 50% !important;
-        right: auto !important;
-        width: 90%;
-        max-width: 300px;
-        transform: translate(-50%, -50%) scale(0.95) !important;
-        transform-origin: center !important;
-        opacity: 0;
-        visibility: hidden;
-        background: white;
-        padding: 1rem;
-        border-radius: 12px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-        z-index: 99999;
-    }
-    .tutor-nikol .tutor-info { left: 115%; transform-origin: left center; }
-    .tutor-lior .tutor-info { right: 115%; transform-origin: right center; }
-
-    .tutor-info:before {
-        content: '';
-        position: absolute;
-        border-top: 8px solid transparent;
-        border-bottom: 8px solid transparent;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    .tutor-nikol .tutor-info:before { right: 100%; border-right: 8px solid white; }
-    .tutor-lior .tutor-info:before { left: 100%; border-left: 8px solid white; }
-
-    .tutor-info h3 {
-        color: #1e3a8a;
-        margin-bottom: 0.8rem;
-        font-size: 1.5rem;
-        text-align: center;
-    }
-
-    .tutor-info ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .tutor-info ul li {
-        margin-bottom: 0.5rem;
-        font-size: 0.95rem;
-        text-align: right;
-        color: #4b5563;
-    }
-
-    .tutor-info ul li:last-child {
-        margin-bottom: 0;
-    }
-
-    .tutor-card:hover .tutor-info {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(-50%) scale(1);
-    }
-
-    .tutor-nikol:hover .tutor-info { transform: translateY(-50%) scale(1); }
-    .tutor-lior:hover .tutor-info { transform: translateY(-50%) scale(1); }
-
-    @keyframes titlePop {
-        0% { transform: scale(0.95); opacity: 0; }
-        100% { transform: scale(1); opacity: 1; }
-    }
-
-    @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.8; }
-    }
-
-    @keyframes glowPulse {
-        0%, 100% { transform: scale(1); opacity: 0.3; }
-        50% { transform: scale(1.1); opacity: 0.5; }
-    }
-
-    @keyframes rocketFly {
-        0% {
-            transform: translateY(0) rotate(0deg);
+    @media (min-width: 993px) {
+        /* Desktop hover styles */
+        .tutor-info {
+            position: absolute;
+            top: 50%;
+            width: 380px;
+            opacity: 0;
+            visibility: hidden;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            z-index: 9999;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
         }
-        50% {
-            transform: translateY(-15px) rotate(0deg);
-            text-shadow: 0 15px 15px rgba(0,0,0,0.1);
+
+        .tutor-nikol .tutor-info {
+            left: 115%;
+            transform-origin: left center;
+            transform: translateY(-50%) scale(0.95);
         }
-        100% {
-            transform: translateY(0) rotate(0deg);
+
+        .tutor-lior .tutor-info {
+            right: 115%;
+            transform-origin: right center;
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .tutor-card:hover .tutor-info {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(-50%) scale(1);
+        }
+    }
+
+    @media (max-width: 992px) {
+        /* Mobile tap styles */
+        .tutor-info {
+            position: fixed;
+            top: 65%;
+            left: 50% !important;
+            width: 85vw; /* Using viewport width for wider size */
+            min-width: 350px; /* Minimum width */
+            transform: translate(-50%, -50%) scale(0.95) !important;
+            transform-origin: center !important;
+            opacity: 0;
+            visibility: hidden;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            z-index: 99999;
+        }
+
+        .tutor-info h3 {
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        .tutor-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .tutor-info ul li {
+            margin-bottom: 0.4rem;
+            font-size: 1rem;
+            text-align: right;
+            color: #4b5563;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 0.75rem;
+        }
+
+        .tutor-card:hover .tutor-info {
+            transform: translate(-50%, -50%) scale(1) !important;
         }
     }
 
@@ -449,30 +441,6 @@
             position: relative;
         }
 
-        .tutor-info {
-            position: fixed;
-            top: 65%;
-            left: 50% !important;
-            right: auto !important;
-            width: 90%;
-            max-width: 300px;
-            transform: translate(-50%, -50%) scale(0.95) !important;
-            transform-origin: center !important;
-            opacity: 0;
-            visibility: hidden;
-            background: white;
-            padding: 1rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-            z-index: 99999;
-        }
-
-        .tutor-card:hover .tutor-info {
-            opacity: 1;
-            visibility: visible;
-            transform: translate(-50%, -50%) scale(1) !important;
-        }
-
         #subjects {
             position: relative;
             z-index: 1;
@@ -488,35 +456,35 @@
   <section id="subjects" class="fade-in">
     <h1 class="display-5 fw-bold text-center text-body-emphasis mt-3">מקצועות</h1>
     <div class="container">
-      <div class="row row-cols-2 row-cols-md-3 g-4 justify-content-center">
+      <div class="row row-cols-2 row-cols-md-3 g-2 justify-content-center">
         <div class="col text-center">
           <div class="subject-item">
-            <img src="./images/book.png" alt="Hebrew" class="subject-icon mb-2" width="40">
-            <div>עברית</div>
+            <img src="./images/book.png" alt="Hebrew" class="subject-icon mb-2" width="48">
+            <div style="font-size: 1.2rem;">עברית</div>
           </div>
         </div>
         <div class="col text-center">
           <div class="subject-item">
-            <img src="./images/math.png" alt="Math" class="subject-icon mb-2" width="40">
-            <div>מתמטיקה</div>
+            <img src="./images/math.png" alt="Math" class="subject-icon mb-2" width="48">
+            <div style="font-size: 1.2rem;">מתמטיקה</div>
           </div>
         </div>
         <div class="col text-center">
           <div class="subject-item">
-            <img src="./images/saturn.png" alt="Physics" class="subject-icon mb-2" width="40">
-            <div>פיזיקה</div>
+            <img src="./images/saturn.png" alt="Physics" class="subject-icon mb-2" width="48">
+            <div style="font-size: 1.2rem;">פיזיקה</div>
           </div>
         </div>
         <div class="col text-center">
           <div class="subject-item">
-            <img src="./images/english.png" alt="English" class="subject-icon mb-2" width="40">
-            <div>אנגלית</div>
+            <img src="./images/english.png" alt="English" class="subject-icon mb-2" width="48">
+            <div style="font-size: 1.2rem;">אנגלית</div>
           </div>
         </div>
         <div class="col text-center">
           <div class="subject-item">
-            <img src="./images/coding.png" alt="Computer" class="subject-icon mb-2" width="40">
-            <div>מחשבים</div>
+            <img src="./images/coding.png" alt="Computer" class="subject-icon mb-2" width="48">
+            <div style="font-size: 1.2rem;">מחשבים</div>
           </div>
         </div>
       </div>
@@ -595,8 +563,8 @@
             </div>
         </div>
         <div class="col-md-3">
-          <div class="card mb-4 shadow-sm border-primary">
-            <div class="card-header py-3 text-bg-primary border-primary">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-header py-3" style="background-color: #e7f1ff; color: #0d6efd;">
               <h4 class="my-0 fw-bold text-center">כפול</h4>
             </div>
             <div class="card-body">
@@ -605,8 +573,8 @@
           </div>
         </div>
         <div class="col-md-3">
-          <div class="card mb-4 shadow-sm">
-            <div class="card-header py-3">
+          <div class="card mb-4 shadow-sm border-primary">
+            <div class="card-header py-3 text-bg-primary">
               <h4 class="my-0 fw-bold text-center">משולש</h4>
             </div>
             <div class="card-body">
@@ -626,31 +594,11 @@
               <!-- Introduction -->
               <div class="mb-4">
                   <p class="lead">
-                      היי! כאן ניקול(22) וליאור(22) 👋
+                      היי! כאן ניקול וליאור(22) 👋
                   </p>
                   <p class="lead">
                       אנחנו תלמידים לשעבר בעלי תעודת הצטיינות ממשרד החינוך ומנכל אורט, שאוהבים מאוד ללמוד, 
                       ויותר מכך - ללמד תלמידים אחרים באופן חוויתי ופשוט.
-                  </p>
-              </div>
-
-              <!-- Current Status -->
-              <div class="mb-4">
-                  <h4 class="text-primary mb-3">איפה אנחנו היום?</h4>
-                  <p class="lead">
-                      🎓 ליאור הוא עתודאי בתכנית מואצת לתואר שני באוניברסיטה ועובד בחברת סטארטאפ מצליחה
-                      <br>
-                      ⭐ ניקול סיימה שירות משמעותי בתפקיד בכיר ומתחילה לימודים בתחום הרפואה באוקטובר הקרוב
-                  </p>
-              </div>
-
-              <!-- Experience -->
-              <div class="mb-4">
-                  <h4 class="text-primary mb-3">הניסיון שלנו</h4>
-                  <p class="lead">
-                      👨‍🏫 ליאור היה מדריך בתכניות המצויינות סטארטק ומגשימים
-                      <br>
-                      👩‍🏫 ניקול לימדה מספר רב של תלמידים במסגרת שיעורים פרטיים ובהתנדבות
                   </p>
               </div>
 
@@ -710,6 +658,13 @@
       } else {
         backToTopButton.classList.remove('visible');
       }
+      // Hide all tutor info popups when scrolling on mobile only
+      if (window.innerWidth <= 992) {
+        document.querySelectorAll('.tutor-info').forEach(popup => {
+          popup.style.opacity = '0';
+          popup.style.visibility = 'hidden';
+        });
+      }
     });
     
     backToTopButton.addEventListener('click', () => {
@@ -717,6 +672,46 @@
         top: 0,
         behavior: 'smooth'
       });
+    });
+
+    // Handle tutor card interactions on mobile only
+    const tutorCards = document.querySelectorAll('.tutor-card');
+    
+    tutorCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (window.innerWidth <= 992) {
+          e.stopPropagation();
+          const popup = card.querySelector('.tutor-info');
+          
+          // Hide all other popups first
+          document.querySelectorAll('.tutor-info').forEach(otherPopup => {
+            if (otherPopup !== popup) {
+              otherPopup.style.opacity = '0';
+              otherPopup.style.visibility = 'hidden';
+            }
+          });
+          
+          // Toggle current popup
+          if (popup.style.visibility === 'visible') {
+            popup.style.opacity = '0';
+            popup.style.visibility = 'hidden';
+          } else {
+            popup.style.opacity = '1';
+            popup.style.visibility = 'visible';
+            popup.style.transform = 'translate(-50%, -50%) scale(1)';
+          }
+        }
+      });
+    });
+
+    // Close popup when clicking outside (mobile only)
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 992 && !e.target.closest('.tutor-card')) {
+        document.querySelectorAll('.tutor-info').forEach(popup => {
+          popup.style.opacity = '0';
+          popup.style.visibility = 'hidden';
+        });
+      }
     });
 
     // Add fade-in animation to elements when they come into view
