@@ -44,16 +44,19 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
 }
 
-.nav-link {
+.nav-pills .nav-link {
     transition: all var(--transition-speed) ease;
-    margin: 0 0.5rem; /* Reduced margin */
+    margin: 0 0.5rem;
     border-radius: 20px;
-    padding: 0.5rem 1rem; /* Reduced padding */
+    padding: 0.5rem 1rem;
+    pointer-events: none; /* Make links unclickable */
+    opacity: 0.6; /* Make them look slightly disabled */
+    cursor: default; /* Change cursor to default instead of pointer */
 }
 
 .nav-link:hover {
-    transform: translateY(-2px);
-    background-color: var(--light-gray);
+    transform: none; /* Remove hover effect */
+    background-color: transparent; /* Remove hover background */
 }
 
 /* Buttons */
@@ -516,23 +519,21 @@ a, button, input, select {
 
 .subject-item {
     background: white;
-    padding: 1rem;  /* Reduced from 1.5rem */
-    border-radius: 12px;  /* Slightly reduced from 15px */
-    transition: all var(--transition-speed) ease;
-    cursor: pointer;
+    padding: 1rem;
+    border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    margin: 0.5rem;  /* Added small margin */
+    margin: 0.5rem;
 }
 
 .subject-item:hover {
-    transform: translateY(-3px);  /* Reduced from -5px */
-    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    transform: none; /* Remove the upward movement */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Keep the same shadow */
 }
 
 .subject-icon {
-    width: 32px;  /* Reduced from 40px */
+    width: 32px;
     height: auto;
-    margin-bottom: 0.3rem;  /* Reduced from 0.5rem */
+    margin-bottom: 0.3rem;
 }
 
 .subject-item div {
