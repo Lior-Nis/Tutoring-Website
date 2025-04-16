@@ -18,24 +18,23 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 
-<body class="container-fluid">
+<body class="container-fluid p-0">
   <!-- Back to Top Button -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
     <i class="fa fa-arrow-up"></i>
   </button>
 
   <section id="header">
-      <header class="d-flex justify-content-right">
-          <ul class="nav nav-pills">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link" aria-current="page">
-                    <img src="./images/brainstorm.png" alt="Logo" width="32" height="32" class="flex-shrink-0">
-                </a>
-              </li>
+      <header class="container d-flex justify-content-between align-items-center">
+          <a href="./index.html" class="nav-link" aria-current="page">
+              <img src="./images/brainstorm.png" alt="Logo" width="32" height="32" class="flex-shrink-0">
+          </a>
+          <ul class="nav nav-pills mx-auto">
               <li class="nav-item mb-1"><a href="./pricing.html" class="nav-link text-body-secondary">תעריף</a></li>
               <li class="nav-item mb-1"><a href="./faqs.html" class="nav-link text-body-secondary">שאלות</a></li>
               <li class="nav-item mb-1"><a href="./about_us.html" class="nav-link text-body-secondary">עלינו</a></li>
           </ul>
+          <div style="width: 32px"></div> <!-- Spacer to balance the layout -->
       </header>
   </section>
 
@@ -45,13 +44,9 @@
           <h2 class="display-6 fw-bold text-body-emphasis">ושפרו את הציונים <br> 💯</h2>
           <div class="col-lg-6 mx-auto">
             <p class="lead mb-4">שיעורים פרטיים תוך מתן ליווי אישי, דגש על הבנת החומר, ובניית יסודות חזקים. <br> אבל הכי חשוב - העברת החומר באופן חוויתי ומעניין :)</p>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-4">
-              <a href="./appointments.html" class="btn btn-primary btn-lg px-4 me-sm-3 rounded-pill">הזמנת שיעור 🗓️</a>
-            </div>
           </div>
           <div class="overflow-hidden" style="max-height: 30vh;">
             <div class="container px-5">
-              <img src="./images/gavriel-modified.png" class="img-fluid rounded-3 mb-4" alt="Gavriel" width="60" loading="lazy">
               <img src="./images/nikol-modified.png" class="img-fluid rounded-3 mb-4" alt="Nikol" width="60" loading="lazy">
               <img src="./images/lior-modified.png" class="img-fluid rounded-3 mb-4" alt="Lior" width="60" loading="lazy">
             </div>
@@ -60,13 +55,40 @@
   </section>
 
   <section id="subjects" class="fade-in">
-    <h1 class="display-5 fw-bold text-center text-body-emphasis">מקצועות</h1>
-    <div class="d-flex flex-wrap justify-content-center gap-3">
-      <button class="btn rounded-pill subject-btn" type="button">מתמטיקה🧮</button>
-      <button class="btn rounded-pill subject-btn" type="button">אנגלית🌐</button>
-      <button class="btn rounded-pill subject-btn" type="button">עברית📚</button>
-      <button class="btn rounded-pill subject-btn" type="button">פיזיקה🌌</button>
-      <button class="btn rounded-pill subject-btn" type="button">מחשבים💻</button>
+    <h1 class="display-5 fw-bold text-center text-body-emphasis mt-3">מקצועות</h1>
+    <div class="container">
+      <div class="row row-cols-2 row-cols-md-3 g-4 justify-content-center">
+        <div class="col text-center">
+          <div class="subject-item">
+            <img src="./images/math.png" alt="Math" class="subject-icon mb-2" width="40">
+            <div>מתמטיקה</div>
+          </div>
+        </div>
+        <div class="col text-center">
+          <div class="subject-item">
+            <img src="./images/english.png" alt="English" class="subject-icon mb-2" width="40">
+            <div>אנגלית</div>
+          </div>
+        </div>
+        <div class="col text-center">
+          <div class="subject-item">
+            <img src="./images/book.png" alt="Hebrew" class="subject-icon mb-2" width="40">
+            <div>עברית</div>
+          </div>
+        </div>
+        <div class="col text-center">
+          <div class="subject-item">
+            <img src="./images/saturn.png" alt="Physics" class="subject-icon mb-2" width="40">
+            <div>פיזיקה</div>
+          </div>
+        </div>
+        <div class="col text-center">
+          <div class="subject-item">
+            <img src="./images/coding.png" alt="Computer" class="subject-icon mb-2" width="40">
+            <div>מחשבים</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
   
@@ -166,27 +188,68 @@
   <section id="about-us" class="fade-in">
       <div class="container my-5">
           <div class="text-center bg-body-tertiary rounded-3 p-4">
-              <h1 class="text-body-emphasis">קצת עלינו</h1>
-              <p class="lead">
-                  היי! כאן ליאור(21), ניקול(21), וגבריאל(18), אנחנו תלמידים לשעבר בעלי תעודת הצטיינות ממשרד החינוך ומנכל אורט, שאוהבים מאוד ללמוד, ויותר מכך - ללמד תלמידים אחרים באופן חוויתי ופשוט.
-              </p>
-              <p class="lead">
-                  נכון להיום, ליאור הוא עתודאי בתכנית מואצת לתואר שני באוניברסיטה, גבריאל ביחידה מובחרת בצבא, וניקול סיימה שירות משמעותי בתפקיד בכיר.
-              </p>
-              <p class="lead">
-                  ליאור היה מדריך בתכניות המצויינות סטארטק ומגשימים. גבריאל וניקול לימדו מספר רב של תלמידים במסגרת שיעורים פרטיים ובהתנדבות.
-              </p>
+              <h1 class="text-body-emphasis mb-4">קצת עלינו</h1>
+              
+              <!-- Introduction -->
+              <div class="mb-4">
+                  <p class="lead">
+                      היי! כאן ניקול(22) וליאור(22) 👋
+                  </p>
+                  <p class="lead">
+                      אנחנו תלמידים לשעבר בעלי תעודת הצטיינות ממשרד החינוך ומנכל אורט, שאוהבים מאוד ללמוד, 
+                      ויותר מכך - ללמד תלמידים אחרים באופן חוויתי ופשוט.
+                  </p>
+              </div>
+
+              <!-- Current Status -->
+              <div class="mb-4">
+                  <h4 class="text-primary mb-3">איפה אנחנו היום?</h4>
+                  <p class="lead">
+                      🎓 ליאור הוא עתודאי בתכנית מואצת לתואר שני באוניברסיטה
+                      <br>
+                      ⭐ ניקול סיימה שירות משמעותי בתפקיד בכיר
+                  </p>
+              </div>
+
+              <!-- Experience -->
+              <div class="mb-4">
+                  <h4 class="text-primary mb-3">הניסיון שלנו</h4>
+                  <p class="lead">
+                      👨‍🏫 ליאור היה מדריך בתכניות המצויינות סטארטק ומגשימים
+                      <br>
+                      👩‍🏫 ניקול לימדה מספר רב של תלמידים במסגרת שיעורים פרטיים ובהתנדבות
+                  </p>
+              </div>
+
+              <!-- Teaching Philosophy -->
+              <div class="mb-4">
+                  <h4 class="text-primary mb-3">הגישה שלנו</h4>
+                  <p class="lead">
+                      אנחנו מאמינים בשלושה עקרונות מרכזיים:
+                  </p>
+                  <div class="lead">
+                      ✨ בניית ביטחון עצמי
+                      <br>
+                      🧠 פיתוח חשיבה עצמאית
+                      <br>
+                      🎯 התאמת שיטת הלימוד אישית לכל תלמיד/ה
+                  </div>
+              </div>
+
               <div class="container px-5">
                 <img src="./images/lior_acc.jpeg" class="img-fluid rounded-3 mb-4" alt="Lior" width="200" loading="lazy">
-                <img src="./images/gavriel_acc.jpeg" class="img-fluid rounded-3 mb-4" alt="Gavriel" width="200" loading="lazy">
               </div>
           </div>
       </div>
   </section>
 
   <section id="signup-button" class="fade-in">
-    <div class="d-flex justify-content-center my-4">
-      <a href="./appointments.html" class="btn btn-primary btn-lg px-4 me-sm-3 rounded-pill w-50 text-center">הזמנת שיעור 🗓️</a>
+    <div class="d-flex justify-content-between align-items-center px-3 my-2">
+      <div style="width: 40px"></div> <!-- Spacer to balance the layout -->
+      <a href="./appointments.html" class="btn btn-primary btn-lg px-4 rounded-pill text-center">הזמנת שיעור 🗓️</a>
+      <a class="text-body-secondary" href="https://wa.me/972546969891" aria-label="Contact on WhatsApp">
+        <img src="./images/whatsapp.png" width="40" height="40" alt="WhatsApp" class="bi bi-whatsapp">
+      </a>
     </div>
   </section>
   
@@ -199,14 +262,6 @@
               </a>
               <span class="mb-3 mb-md-0 text-body-secondary">שיעורים פרטיים</span>
             </div>
-        
-            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-              <li class="ms-3">
-                <a class="text-body-secondary" href="https://wa.me/972546969891" aria-label="Contact on WhatsApp">
-                  <img src="./images/whatsapp.png" width="40" height="40" alt="WhatsApp" class="bi bi-whatsapp">
-                </a>
-              </li>
-            </ul>
           </footer>
       </div>
   </section>
