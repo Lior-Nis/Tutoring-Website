@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -16,12 +16,475 @@
     <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
+    
+    <style>
+      :root {
+        --body-bg: #ffffff;
+        --text-color: #212529;
+        --card-bg: #ffffff;
+        --card-border: rgba(37, 99, 235, 0.1);
+        --header-bg: #ffffff;
+        --hero-bg: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        --feature-bg: white;
+        --feature-border: rgba(37, 99, 235, 0.1);
+        --primary-color: #0d6efd;
+        --primary-hover: #0b5ed7;
+        --primary-light: #e7f1ff;
+        --section-bg: #f8f9fa;
+        --shadow-color: rgba(0, 0, 0, 0.1);
+        --border-color: #dee2e6;
+      }
+      
+      [data-theme="dark"] {
+        --body-bg: #121212;
+        --text-color: #ffffff;
+        --card-bg: #2d2d2d;
+        --card-border: rgba(255, 255, 255, 0.2);
+        --header-bg: #1e1e1e;
+        --hero-bg: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+        --feature-bg: #383838;
+        --feature-border: rgba(255, 255, 255, 0.2);
+        --primary-color: #4d8bf8;
+        --primary-hover: #3b7deb;
+        --primary-light: #2c3e50;
+        --section-bg: #1e1e1e;
+        --shadow-color: rgba(0, 0, 0, 0.5);
+        --border-color: #494f57;
+      }
+      
+      body {
+        background-color: var(--body-bg);
+        color: var(--text-color);
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      
+      .theme-toggle {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1100;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 2px 10px var(--shadow-color);
+        transition: all 0.3s ease;
+      }
+      
+      .theme-toggle:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px var(--shadow-color);
+      }
+      
+      #header {
+        background-color: var(--header-bg);
+        box-shadow: 0 2px 4px var(--shadow-color);
+      }
+      
+      .hero-wrapper {
+        background: var(--hero-bg) !important;
+      }
+      
+      .card, .feature-item, .accordion-item, .message-box, .bg-body-tertiary {
+        background-color: var(--card-bg) !important;
+        border-color: var(--card-border) !important;
+      }
+      
+      .feature-item {
+        background: var(--feature-bg) !important;
+        border-color: var(--feature-border) !important;
+      }
+      
+      .accordion-button {
+        background-color: var(--card-bg) !important;
+        color: var(--text-color) !important;
+      }
+      
+      .accordion-button:not(.collapsed) {
+        background-color: var(--primary-light) !important;
+      }
+      
+      .btn-outline-primary {
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+      }
+      
+      .btn-outline-primary:hover {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+      }
+      
+      .btn-primary {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+      }
+      
+      .btn-primary:hover {
+        background-color: var(--primary-hover);
+        border-color: var(--primary-hover);
+      }
+      
+      .bg-body-tertiary {
+        background-color: var(--section-bg) !important;
+      }
+      
+      .text-body-emphasis {
+        color: var(--text-color) !important;
+      }
+      
+      .text-body-secondary {
+        color: var(--text-color) !important;
+        opacity: 0.75;
+      }
+      
+      .card-header {
+        border-color: var(--border-color) !important;
+      }
+      
+      [data-theme="dark"] .tutor-img {
+        border-color: var(--primary-color) !important;
+      }
+      
+      [data-theme="dark"] .mega-title {
+        color: var(--primary-color) !important;
+      }
+      
+      /* Add more specific dark mode styles */
+      [data-theme="dark"] .feature-item {
+        background-color: #383838 !important;
+        border-color: rgba(255, 255, 255, 0.2) !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+      
+      [data-theme="dark"] .feature-item p {
+        color: #ffffff;
+      }
+      
+      [data-theme="dark"] .message-box {
+        background-color: #2d2d2d !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      }
+      
+      [data-theme="dark"] .card {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+      }
+      
+      [data-theme="dark"] .card-header {
+        background-color: #383838 !important;
+      }
+      
+      [data-theme="dark"] .text-bg-primary {
+        background-color: #4d8bf8 !important;
+      }
+      
+      [data-theme="dark"] .mega-title, 
+      [data-theme="dark"] .gradient-text,
+      [data-theme="dark"] .super-text {
+        color: #4d8bf8 !important;
+      }
+      
+      [data-theme="dark"] .emphasis-text {
+        color: #e9ecef !important;
+      }
+      
+      [data-theme="dark"] .btn-outline-primary {
+        color: #4d8bf8;
+        border-color: #4d8bf8;
+      }
+      
+      [data-theme="dark"] .btn-outline-primary:hover {
+        background-color: #4d8bf8;
+        color: #ffffff;
+      }
+      
+      [data-theme="dark"] .subject-item {
+        background-color: #383838 !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+      
+      [data-theme="dark"] .gradient-box {
+        background: linear-gradient(120deg, rgba(77, 139, 248, 0.15) 0%, rgba(44, 62, 80, 0.15) 100%) !important;
+      }
+      
+      [data-theme="dark"] .super-text {
+        background: linear-gradient(120deg, #4d8bf8 0%, #3b7deb 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+      [data-theme="dark"] .accordion-button:not(.collapsed) {
+        color: #ffffff !important;
+        background-color: #2c3e50 !important;
+      }
+      
+      /* Fix FAQ section in dark mode */
+      [data-theme="dark"] .accordion-body {
+        background-color: #2d2d2d !important;
+        color: #ffffff !important;
+      }
+      
+      [data-theme="dark"] .accordion-item {
+        border-color: rgba(255, 255, 255, 0.1) !important;
+      }
+      
+      /* Fix pricing cards in dark mode */
+      [data-theme="dark"] #pricing .card {
+        background-color: #2d2d2d !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+      }
+      
+      [data-theme="dark"] #pricing .card-header {
+        background-color: #383838 !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+      }
+      
+      [data-theme="dark"] #pricing .card-header h4 {
+        color: #ffffff !important;
+      }
+      
+      [data-theme="dark"] #pricing .card-body h2 {
+        color: #ffffff !important;
+      }
+      
+      [data-theme="dark"] #pricing .card-header.text-bg-primary {
+        background-color: #4d8bf8 !important;
+        color: #ffffff !important;
+      }
+      
+      [data-theme="dark"] #pricing .card-header.py-3[style*="background-color: #e7f1ff"] {
+        background-color: rgba(77, 139, 248, 0.2) !important;
+        color: #4d8bf8 !important;
+      }
+      
+      [data-theme="dark"] #pricing .card.border-primary {
+        border-color: #4d8bf8 !important;
+      }
+      
+      /* Enhanced pricing card colors for dark mode */
+      [data-theme="dark"] #pricing .card-header {
+        background-color: #444444 !important;
+        color: white !important;
+      }
+      
+      /* Single pricing card (יחיד) */
+      [data-theme="dark"] #pricing .card:nth-child(1) .card-header {
+        background-color: #ff6b6b !important; /* Bright red */
+        color: white !important;
+        font-weight: 800 !important;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        border-bottom: 3px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      }
+      
+      /* BLUE SHADES PRICING CARDS FOR DARK MODE */
+      /* Single pricing card (יחיד) - Lightest blue */
+      [data-theme="dark"] #pricing .card:nth-child(1) .card-header {
+        background: #60a5fa !important; /* Light blue */
+        color: white !important;
+        font-weight: 800 !important;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        border-bottom: 3px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      }
+      
+      /* Double pricing card (כפול) - Medium blue */
+      [data-theme="dark"] #pricing .card-header[style*="background-color: #e7f1ff"] {
+        background: #3b82f6 !important; /* Medium blue */
+        color: white !important;
+        font-weight: 800 !important;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        border-bottom: 3px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      }
+      
+      /* Triple pricing card (משולש) - Darkest blue */
+      [data-theme="dark"] #pricing .card-header.text-bg-primary {
+        background: #1d4ed8 !important; /* Dark blue */
+        color: white !important;
+        font-weight: 800 !important;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        border-bottom: 3px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      }
+      
+      /* EXTREMELY DISTINCT BLUE SHADES - Override with high specificity */
+      /* First card - Very light blue (almost sky blue) */
+      [data-theme="dark"] #pricing .row .col-md-3:nth-child(1) .card .card-header {
+        background-color: #7dd3fc !important; /* Very light sky blue */
+      }
+      
+      /* Second card - Medium blue */
+      [data-theme="dark"] #pricing .row .col-md-3:nth-child(2) .card .card-header {
+        background-color: #0284c7 !important; /* Medium blue */
+      }
+      
+      /* Third card - Dark blue (navy) */
+      [data-theme="dark"] #pricing .row .col-md-3:nth-child(3) .card .card-header {
+        background-color: #1e40af !important; /* Dark navy blue */
+      }
+      
+      [data-theme="dark"] #pricing .card:nth-child(1) .card-header h4 {
+        font-size: 1.4rem !important;
+        letter-spacing: 1px;
+      }
+      
+      /* Make pricing card body text more visible too */
+      [data-theme="dark"] #pricing .card-body h2 {
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        font-size: 2rem !important;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+      }
+      
+      /* Ensure transitions are smooth when switching modes */
+      html.color-theme-in-transition,
+      html.color-theme-in-transition *,
+      html.color-theme-in-transition *:before,
+      html.color-theme-in-transition *:after {
+        transition: all 750ms !important;
+        transition-delay: 0 !important;
+      }
+      
+      /* Fix popup elements in dark mode */
+      [data-theme="dark"] .tutor-info,
+      [data-theme="dark"] .mobile-popup-content,
+      [data-theme="dark"] .popup-content {
+        background-color: #2d2d2d !important;
+        color: #ffffff !important;
+        border-color: rgba(255, 255, 255, 0.2) !important;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5) !important;
+      }
+      
+      [data-theme="dark"] .tutor-info h3,
+      [data-theme="dark"] .mobile-popup-content h3,
+      [data-theme="dark"] .popup-content h3 {
+        color: #ffffff !important;
+      }
+      
+      [data-theme="dark"] .tutor-info ul li,
+      [data-theme="dark"] .mobile-popup-content ul li,
+      [data-theme="dark"] .popup-content ul li {
+        color: #e9ecef !important;
+      }
+      
+      [data-theme="dark"] .mobile-popup {
+        background-color: rgba(0, 0, 0, 0.8) !important;
+      }
+      
+      [data-theme="dark"] .mobile-close,
+      [data-theme="dark"] .popup-close {
+        background-color: #4d8bf8 !important;
+        color: white !important;
+        border-color: #2d2d2d !important;
+      }
+      
+      [data-theme="dark"] #popup-overlay {
+        background-color: rgba(0, 0, 0, 0.7) !important;
+      }
+      
+      /* Fix all modals and dialogs */
+      [data-theme="dark"] .modal-content,
+      [data-theme="dark"] .dialog-content {
+        background-color: #2d2d2d !important;
+        color: #ffffff !important;
+        border-color: rgba(255, 255, 255, 0.2) !important;
+      }
+      
+      /* Fix any other white backgrounds that might appear */
+      [data-theme="dark"] [class*="popup"],
+      [data-theme="dark"] [class*="modal"],
+      [data-theme="dark"] [class*="dialog"],
+      [data-theme="dark"] [class*="overlay"] {
+        background-color: #2d2d2d !important;
+        color: #ffffff !important;
+      }
+      
+      /* Enhance navigation buttons in dark mode */
+      [data-theme="dark"] .btn-outline-primary {
+        color: #60a5fa !important;
+        border-color: #60a5fa !important;
+        background-color: rgba(13, 110, 253, 0.05) !important;
+      }
+      
+      [data-theme="dark"] .btn-outline-primary:hover {
+        color: #ffffff !important;
+        background-color: #4d8bf8 !important;
+        border-color: #4d8bf8 !important;
+        box-shadow: 0 0 8px rgba(77, 139, 248, 0.5) !important;
+      }
+      
+      /* Ensure the header background is dark in dark mode */
+      [data-theme="dark"] #header {
+        background-color: #121212 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+      }
+      
+      /* Make sure the toggle button is clearly visible */
+      [data-theme="dark"] .theme-toggle {
+        background-color: #4d8bf8 !important;
+        box-shadow: 0 0 10px rgba(77, 139, 248, 0.5) !important;
+      }
+      
+      /* Fix subjects section in dark mode */
+      [data-theme="dark"] #subjects h1 {
+        color: #ffffff !important;
+      }
+      
+      [data-theme="dark"] .subject-item {
+        background-color: #2d2d2d !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+      }
+      
+      [data-theme="dark"] .subject-item div {
+        color: #ffffff !important;
+      }
+      
+      /* Appointment button and WhatsApp button in dark mode */
+      [data-theme="dark"] .btn-primary {
+        background-color: #4d8bf8 !important;
+        border-color: #4d8bf8 !important;
+        color: white !important;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+      }
+      
+      [data-theme="dark"] .btn-primary:hover {
+        background-color: #3b7deb !important;
+        border-color: #3b7deb !important;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4) !important;
+      }
+      
+      [data-theme="dark"] #signup-button {
+        background-color: #121212 !important;
+      }
+      
+      [data-theme="dark"] #signup-button a.text-body-secondary {
+        filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.2));
+      }
+      
+      /* Fix section headings in dark mode */
+      [data-theme="dark"] section h1 {
+        color: #ffffff !important;
+      }
+    </style>
 </head>
 
 <body class="container-fluid p-0">
   <!-- Back to Top Button -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
     <i class="fa fa-arrow-up"></i>
+  </button>
+  
+  <!-- Dark Mode Toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+    <i class="fa fa-moon-o"></i>
   </button>
 
   <section id="header">
@@ -409,22 +872,23 @@
     @media (max-width: 768px) {
       #header {
         position: relative; /* Change from sticky to relative on mobile */
-        margin-bottom: 10px;
+        margin-bottom: 0px;
+        padding-top: 5px;
       }
       
       #hero {
-        margin-top: 20px !important; /* Add space above hero section */
-        padding-top: 20px;
+        margin-top: 0 !important; /* Remove space above hero section */
+        padding-top: 0;
       }
       
       .hero-wrapper {
-        padding-top: 10px !important;
+        padding-top: 0 !important;
       }
       
       /* Adjust the main headline size on mobile */
       .mega-title {
         font-size: 2.5rem !important;
-        margin-top: 20px !important;
+        margin-top: 10px !important;
         line-height: 1.2;
       }
       
@@ -434,7 +898,13 @@
       
       /* Better spacing between header and content on mobile */
       .nav-pills {
-        margin-bottom: 5px;
+        margin-bottom: 0;
+      }
+      
+      /* Make the "עם תוצאות שרואים!" text smaller on mobile */
+      .super-text {
+        font-size: 2rem !important;
+        white-space: nowrap;
       }
     }
 
@@ -797,6 +1267,32 @@
         height: 35px;
       }
     }
+
+    /* Add more compact styling for feature items */
+    @media (max-width: 768px) {
+        .message-box {
+            padding: 1rem;
+            margin: 1rem auto;
+        }
+        
+        .feature-item {
+            padding: 0.7rem;
+            border-width: 1px;
+        }
+        
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .feature-item p {
+            font-size: 1rem;
+        }
+        
+        .features-grid {
+            gap: 0.5rem;
+        }
+    }
   </style>
 
   <section id="subjects" class="fade-in">
@@ -1114,6 +1610,47 @@
         top: 0,
         behavior: 'smooth'
       });
+    });
+
+    // Dark Mode Functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+    const themeIcon = themeToggle.querySelector('i');
+    
+    // Check for saved theme preference or use device preference
+    const getCurrentTheme = () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        return savedTheme;
+      }
+      
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    
+    // Apply the current theme
+    const applyTheme = (theme) => {
+      htmlElement.setAttribute('data-theme', theme);
+      
+      // Update button icon
+      if (theme === 'dark') {
+        themeIcon.classList.remove('fa-moon-o');
+        themeIcon.classList.add('fa-sun-o');
+      } else {
+        themeIcon.classList.remove('fa-sun-o');
+        themeIcon.classList.add('fa-moon-o');
+      }
+      
+      localStorage.setItem('theme', theme);
+    };
+    
+    // Initialize theme
+    applyTheme(getCurrentTheme());
+    
+    // Toggle theme
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      applyTheme(newTheme);
     });
 
     // Add fade-in animation to elements when they come into view
